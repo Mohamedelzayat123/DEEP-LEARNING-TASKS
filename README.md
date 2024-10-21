@@ -24,14 +24,13 @@ The target variable represents the flower species, which can be one of the follo
 
 ## Steps to Run the Code in Jupyter
 
-### 1. Clone the Repository
+### 1.  Install the Dependencies
 To get started, first clone this GitHub repository:
 
 ```bash
-git clone https://github.com/your-username/iris-classification.git
-cd iris-classification
 
-### 2. Install the Dependencies
+
+### 1. Install the Dependencies
 
 pip install torch
 pip install numpy
@@ -40,11 +39,11 @@ pip install matplotlib
 pip install scikit-learn
 pip install tqdm
 
-### 3. Open the Jupyter Notebook
+### 2. Open the Jupyter Notebook
 
 jupyter notebook
 
-### 4. Run the Notebook
+### 3. Run the Notebook
 Open the notebook file (iris_classification.ipynb) and run each cell sequentially. The code is organized into sections:
 
 Data Preparation: Load and preprocess the Iris dataset.
