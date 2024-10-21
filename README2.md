@@ -54,12 +54,4 @@ pip install tqdm
 jupyter notebook
 
 ### 3. Run the Notebook
-Open the notebook file (iris_classification.ipynb) and run each cell sequentially. The code is organized into sections:
-
-Data Preparation: Load and preprocess the Iris dataset.
-Data Visualization: Visualize the features of the dataset.
-Neural Network Configuration: Set up a neural network using PyTorch.
-Model Training: Train the neural network on the dataset.
-Evaluation Metrics: Evaluate the model using accuracy, confusion matrix, precision, recall, F1-score, and ROC-AUC curve.
-Plotting: Visualize the training accuracy and loss, and plot the ROC-AUC curves for each class.
-
+Open the heart_disease_prediction.ipynb file and run the cells sequentially to execute the code.
