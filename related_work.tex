@@ -1,0 +1,41 @@
+\section{Related Work}
+\label{sec:related_work}
+
+Biomedical Entity Linking (BEL) is a fundamental task in biomedical natural language processing that involves mapping entity mentions in unstructured text to their corresponding entries in standardized knowledge bases. This section reviews the relevant literature across four key dimensions: biomedical knowledge bases, traditional and neural entity linking approaches, large language model-based methods, and benchmark datasets.
+
+\subsection{Biomedical Knowledge Bases}
+
+The Unified Medical Language System (UMLS) serves as the most comprehensive biomedical ontology, integrating over 200 source vocabularies into a unified metathesaurus containing approximately 3.5 million concepts and 14 million unique concept names \cite{bodenreider2004umls}. UMLS provides Concept Unique Identifiers (CUIs) that enable standardized representation of biomedical entities across heterogeneous terminologies, making it the primary target knowledge base for biomedical entity linking systems.
+
+Medical Subject Headings (MeSH), maintained by the U.S. National Library of Medicine, provides a hierarchically-organized vocabulary of over 30,000 descriptors and 300,000 supplementary concept records for indexing and cataloging biomedical literature \cite{mesh2024}. MeSH terms are extensively used for PubMed indexing, with the database containing over 36 million citations as of 2024 \cite{pubmed_stats2024}. The hierarchical structure of MeSH enables both specific and broader concept matching, which is particularly valuable for entity normalization tasks.
+
+Beyond domain-specific ontologies, general-purpose knowledge bases such as Wikidata \cite{vrandecic2014wikidata} and DBpedia \cite{lehmann2015dbpedia} have been increasingly integrated into biomedical NLP pipelines. These resources provide complementary world knowledge and cross-domain entity relationships that can enhance disambiguation in complex biomedical contexts.
+
+\subsection{Neural Approaches to Biomedical Entity Linking}
+
+Early neural approaches to biomedical entity linking relied primarily on learning dense vector representations of entities and mentions. SapBERT \cite{liu2021sapbert} introduced a self-alignment pretraining scheme that leverages the synonym structure in UMLS to learn entity representations. By treating all synonymous terms of a concept as equivalent during pretraining, SapBERT achieved state-of-the-art performance across multiple medical entity linking benchmarks. The model demonstrated that metric learning objectives, combined with domain-specific pretraining on biomedical corpora, can effectively capture fine-grained semantic relationships between entity mentions and their canonical forms.
+
+However, embedding-based approaches face inherent limitations when handling ambiguous mentions that map to multiple candidate entities. Since these methods typically match mentions to the closest entity embedding without considering broader context, they struggle with polysemous terms and abbreviations that are prevalent in clinical and biomedical text \cite{wu2017abbr}. This limitation motivates the integration of contextual information and more sophisticated disambiguation mechanisms.
+
+For efficient retrieval over large-scale knowledge bases, approximate nearest neighbor search techniques have become essential. The FAISS library \cite{douze2024faiss} provides optimized implementations of similarity search algorithms that enable real-time entity linking against millions of candidate entities, making it a critical component in production biomedical NLP systems.
+
+\subsection{Large Language Model-Based Entity Linking}
+
+The emergence of large language models (LLMs) has opened new paradigms for biomedical entity linking. BioLinkerAI \cite{biolinkerai2025} proposed a neuro-symbolic approach that combines rule-based entity extraction with LLM-powered candidate disambiguation. By leveraging the contextual understanding capabilities of LLMs, BioLinkerAI demonstrated superior performance in disambiguating entities that share surface forms but refer to different concepts in UMLS. The integration of symbolic rules with neural models addresses the data scarcity challenges common in specialized biomedical domains.
+
+Chain-of-Thought (CoT) prompting \cite{wei2022cot} has emerged as a powerful technique for eliciting complex reasoning capabilities from LLMs. By decomposing entity linking into explicit intermediate steps—such as context analysis, candidate generation, and evidence-based selection—CoT prompting enables more interpretable and accurate linking decisions. This approach is particularly valuable for biomedical applications where understanding the reasoning behind entity assignments is crucial for downstream clinical decision support.
+
+Recent advances in open-source LLMs, such as the Qwen3 family \cite{qwen3}, have made high-quality language models more accessible for biomedical applications. These models, when fine-tuned or prompted appropriately, can capture domain-specific knowledge while maintaining strong general reasoning capabilities, offering a balance between specialized performance and practical deployability.
+
+\subsection{Benchmark Datasets}
+
+The development and evaluation of biomedical entity linking systems relies on several established benchmark datasets. MedMentions \cite{Med} provides a large-scale corpus of over 4,000 PubMed abstracts with exhaustive annotations of UMLS concept mentions, comprising more than 350,000 linked mentions across diverse biomedical disciplines. The dataset's broad coverage and professional annotation quality make it a standard benchmark for evaluating entity linking performance.
+
+The BioCreative V Chemical Disease Relation (CDR) corpus \cite{li2016biocreative} focuses specifically on chemical and disease entities, providing gold-standard annotations for both entity recognition and relation extraction. This dataset has been instrumental in advancing chemical-disease interaction mining from biomedical literature.
+
+BioRED \cite{biored2022} extends beyond single entity types to provide document-level annotations for multiple entity types (genes, diseases, chemicals) and their pairwise relations. Notably, BioRED distinguishes between novel findings and background knowledge, enabling the development of systems that can identify new biomedical discoveries. The dataset comprises 600 PubMed abstracts with comprehensive relation annotations, addressing the limitations of sentence-level benchmarks.
+
+\subsection{Summary}
+
+The landscape of biomedical entity linking has evolved from rule-based systems to sophisticated neural and LLM-based approaches. While embedding-based methods like SapBERT established strong baselines through self-supervised pretraining on biomedical ontologies, recent work demonstrates that integrating LLMs with symbolic reasoning and chain-of-thought prompting can further improve disambiguation accuracy. Our work builds upon these advances by [describe your specific contribution here].
+
